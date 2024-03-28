@@ -2,7 +2,6 @@ import React from 'react';
 import { IMG_CDN_URL } from '../utils/constants';
 
 const RestaurantCard = (props) => {
-    // console.log("data", props.resData.info)
     const {cloudinaryImageId,name,avgRating,cuisines,costForTwo, sla}  = props?.resData?.info;
   return (
     <div className='h-300 w-48 p-2 bg-red-200 hover:border hover:border-red-500 hover:shadow-md mt-2 rounded-xl cursor-pointer hover:bg-violet-300 hover:shadow-xl flex flex-col justify-evenly'>
@@ -17,6 +16,19 @@ const RestaurantCard = (props) => {
         </div>
     </div>
   )
+}
+
+//hoc
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    console.log("resProps", props)
+    return(
+      <div>
+        <label>Promoted</label>
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  }
 }
 
 export default RestaurantCard
